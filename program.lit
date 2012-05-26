@@ -1,0 +1,45 @@
+
+=>main.c
+-#include <GL/gl.h>
+-#include <GL/glfw.h>
+
+-int doexit=0;
+
+-void draw() {
+-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+-	glfwSwapBuffers();
+-}
+
+
+-void GLFWCALL button(int b,int act) {
+-}
+
+-void GLFWCALL mouse(int x,int y) {
+-}
+
+-void GLFWCALL key(int k,int a) {
+-}
+
+-int main() {
+-	glfwInit();
+-	glfwOpenWindow(1024,760,8,8,8,8,8,8,GLFW_WINDOW);
+-	glfwSetMousePosCallback(mouse);
+-	glfwSetMouseButtonCallback(button);
+-	glfwSetKeyCallback(key);
+
+-	glMatrixMode(GL_PROJECTION);
+-	glLoadIdentity();
+-	glOrtho(0,1024,760,0,1,10);
+-	glMatrixMode(GL_MODELVIEW);
+-	glClearColor(0.06f,0.12f,0.12f,0.0f);
+-	glEnable(GL_BLEND); 
+-	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+-	glEnable(GL_LINE_SMOOTH); 
+-	glHint(GL_LINE_SMOOTH, GL_NICEST);
+
+-	for(;!doexit;) {
+-		draw();
+-	}
+-	glfwTerminate();
+-	return 0;
+-}
